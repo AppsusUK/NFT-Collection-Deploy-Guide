@@ -7,7 +7,11 @@ import "https://github.com/AppsusUK/NFT-Collection-Deploy-Guide/blob/main/contra
 contract MyNftName is ERC721Tradable {
     constructor(address _proxyRegistryAddress)
         ERC721Tradable("MyNFTName", "SYMBOL", _proxyRegistryAddress, 5)
-    {}
+    {
+        for (uint256 i = 1; i <= 5; i++) {
+            mintTo(msg.sender);
+        }
+    }
 
     function baseTokenURI() override public pure returns (string memory) {
         return "ipfs://ADD_HASH_HERE/";
