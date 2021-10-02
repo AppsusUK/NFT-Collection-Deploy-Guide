@@ -52,10 +52,10 @@ abstract contract ERC721Tradable is ContextMixin, ERC721Enumerable, NativeMetaTr
 
     function mintMultipleTo(address _to, uint256 _amount) public onlyOwner {
         require(_currentTokenId + _amount < maxSupply);
-            for (uint256 i = 1; i <= _mintAmount; i++) {
-                uint256 newTokenId = _getNextTokenId();
-                _mint(_to, newTokenId);
-                _incrementTokenId();
+            for (uint256 i = 1; i <= _amount; i++) {
+                    uint256 newTokenId = _getNextTokenId();
+                    _mint(_to, newTokenId);
+                    _incrementTokenId();
             }
     }
 
