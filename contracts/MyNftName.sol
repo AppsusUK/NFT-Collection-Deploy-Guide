@@ -6,7 +6,7 @@ import "https://github.com/AppsusUK/NFT-Collection-Deploy-Guide/blob/main/contra
 
 contract MyNftName is ERC721Tradable {
     constructor(address _proxyRegistryAddress)
-        ERC721Tradable("MyNFTName", "SYMBOL", _proxyRegistryAddress)
+        ERC721Tradable("MyNFTName", "SYMBOL", _proxyRegistryAddress, 5)
     {}
 
     function baseTokenURI() override public pure returns (string memory) {
