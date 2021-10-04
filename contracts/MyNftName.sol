@@ -8,9 +8,7 @@ contract MyNftName is ERC721Tradable {
     constructor(address _proxyRegistryAddress)
         ERC721Tradable("MyNFTName", "SYMBOL", _proxyRegistryAddress, 5)
     {
-        for (uint256 i = 1; i <= 5; i++) {
-            mintTo(msg.sender);
-        }
+        mintMultipleTo(msg.sender, 5);
     }
 
     function baseTokenURI() override public pure returns (string memory) {
