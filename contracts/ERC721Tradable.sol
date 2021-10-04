@@ -50,8 +50,14 @@ abstract contract ERC721Tradable is ContextMixin, ERC721Enumerable, NativeMetaTr
         _incrementTokenId();
     }
 
+    /**
+     * @dev Mints multiple tokens to an address.
+     * @param _to address of the future owner of the token
+     * @param _amount number of tokens to mint
+     */
     function mintMultipleTo(address _to, uint256 _amount) public onlyOwner {
-        require(_currentTokenId + _amount <= maxSupply);
+        require(_amount > 0, "Must mint 1 or more tokens!");
+        require(_currentTokenId + _amount <= maxSupply, "Hold up! That's too many!");
             for (uint256 i = 1; i <= _amount; i++) {
                     uint256 newTokenId = _getNextTokenId();
                     _mint(_to, newTokenId);
