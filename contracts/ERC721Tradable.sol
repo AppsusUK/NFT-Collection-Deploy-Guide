@@ -44,7 +44,7 @@ abstract contract ERC721Tradable is ContextMixin, ERC721Enumerable, NativeMetaTr
      * @param _to address of the future owner of the token
      */
     function mintTo(address _to) public onlyOwner {
-        require(_currentTokenId < maxSupply);
+        require(_currentTokenId < maxSupply, "No more tokens left, sorry!");
         uint256 newTokenId = _getNextTokenId();
         _mint(_to, newTokenId);
         _incrementTokenId();
